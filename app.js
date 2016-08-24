@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 // app.use(volleyball);
 
-app.use(express.static(__dirname + 'node_modules'));
+app.use(express.static(__dirname + '/node_modules'));
 
 
 app.get('/', function(req, res, next) {
@@ -59,8 +59,8 @@ models.Hotel.sync({})
 	models.Place.sync({})
 })
 .then(function(){
-	app.listen(3001, function() {
-		console.log("Server is listening intently at port 3001...")
+	app.listen(3000, function() {
+		console.log("Server is listening intently at port 3000...")
 	});
 })
 .catch(console.error);
