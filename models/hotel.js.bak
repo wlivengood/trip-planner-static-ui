@@ -1,6 +1,6 @@
 var db = require('./_db');
 var Place = require('./place');
-var Sequelize = require('Sequelize');
+var Sequelize = require('sequelize');
 
 var Hotel = db.define('hotel', {
 	name: {

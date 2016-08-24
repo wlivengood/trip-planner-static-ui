@@ -3,6 +3,7 @@ var app = express();
 // var volleyball = require('volleyball');
 var bodyParser = require('body-parser');
 var swig = require('swig');
+var models = require('./models');
 
 swig.setDefaults({cache: false});
 app.set('views', __dirname + '/views');
@@ -14,26 +15,27 @@ app.use(bodyParser.json());
 
 // app.use(volleyball);
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + 'node_modules'));
+
 
 app.get('/', function(req, res, next) {
-	console.log("first");
-	var hotels, restaurants, activities;
-	return Hotel.findAll()
+	var hotels, restaurants, activities, places;
+	return models.Hotel.findAll()
 	.then(function(results) {
-		console.log("second");
 		hotels = results;
-		return Restaurant.findAll();
+		return models.Restaurant.findAll();
 	})
 	.then(function(results) {
-		console.log("third");
 		restaurants = results;
-		return Activity.findAll();
+		return models.Activity.findAll();
 	})
 	.then(function(results) {
 		activities = results;
-		console.log("fourth");
-		res.render('index', {hotels: hotels, restaurants: restaurants, activities: activities});
+		return models.Place.findAll();
+	})
+	.then(function(results) {
+		places = results;
+		res.render('index', {hotels: hotels, restaurants: restaurants, activities: activities, places: places});
 	})
 	.catch(next);
 })
@@ -41,9 +43,26 @@ app.get('/', function(req, res, next) {
 app.use(function(err, req, res, next) {
 	console.log("Oh noes!!!!!");
 	console.log(err, err.stack);
-	res.render('error', {error: err});
+	res.render('error', {stack: err.stack});
 });
 
-app.listen(3000, function() {
-	console.log("Server is listening intently at port 3000...")
-});
+
+
+models.Hotel.sync({})
+.then(function(){
+	models.Restaurant.sync({})
+})
+.then(function(){
+	models.Activity.sync({})
+})
+.then(function(){
+	models.Place.sync({})
+})
+.then(function(){
+	app.listen(3001, function() {
+		console.log("Server is listening intently at port 3001...")
+	});
+})
+.catch(console.error);
+
+

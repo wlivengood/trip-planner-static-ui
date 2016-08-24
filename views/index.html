@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tripplanner </title>
+</head>
+<body>
+
+<ul>
+	<h2>Hotels: </h2>
+	{% for hotel in hotels%}
+		<li>{{hotel.name}}</li>
+	{% endfor%}
+</ul>
+
+<ul>
+	<h2>Restaurants: </h2>
+	{% for restaurant in restaurants%}
+		<li>{{restaurant.name}}</li>
+	{% endfor%}
+</ul>
+
+<ul>
+	<h2>Activities: </h2>
+	{% for activity in activities%}
+		<li>{{activity.name}}</li>
+	{% endfor%}
+</ul>
+
+<ul>
+	<h2>Places: </h2>
+	{% for place in places%}
+		<li>{{place.address}}</li>
+	{% endfor%}
+</ul>
+
+
+
+
+
+
+
+
+</body>
+</html>
