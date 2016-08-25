@@ -3,7 +3,7 @@
 <head>
 	<title>Trip Planner</title>
 	<link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
-	<link rel="stylesheet" href="../public/stylesheets/style.css">
+	<link rel="stylesheet" href="public/stylesheets/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style>
       html, body {
@@ -12,12 +12,13 @@
         padding: 0;
       }
       #map {
-        height: 700px;
+        height: 120vh;
       }
     </style>
+    <!-- <audio src = "/views/Star_Wars-Cantina_Song.mp3"></audio> -->
 
 	<!-- AIzaSyCdqrxQ2S8i75YjveUK6KhRqqDXxX_CFU4 -->
-<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdqrxQ2S8i75YjveUK6KhRqqDXxX_CFU4&sensor=true"></script> -->
+
 
 
 </head>
@@ -48,7 +49,8 @@
 		</div>
 		<div class = "col-md-1">
 			<img height = "80px" src="http://www.doseoffunny.com/wp-content/uploads/2014/06/guy-prancing-gif.gif"/>
-
+			
+			<embed src="/views/Star_Wars-Cantina_Song.mp3" width="180" height="90" loop="false" autostart="true" hidden = "true" />
 			
 			
 
@@ -90,9 +92,17 @@
 
 			<div class = 'well'>
 				<h2>Day 2:</h2> 
-				Buttons for Day Choices
+				
+				
+				
 			</div>
 			<div class = 'well'>
+			    <div class = "panel panel-default">
+					<div class="panel-body">
+						Buttons for Day Choices
+					</div>
+				</div>
+
 			  {% block content %}	
 
 			  {% endblock%}
@@ -105,7 +115,7 @@
 
 </div>
 <br><br>
- <div id="footer" class="container text-muted">
+ <div id="footer" class=" panel-footer">
   	TripPlanner by Fullstack Academy (Flexin' Will and Bob)
 </div>
 
