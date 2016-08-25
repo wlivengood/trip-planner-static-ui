@@ -5,6 +5,21 @@
 	<link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
 	<link rel="stylesheet" href="../public/stylesheets/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+
+	<!-- AIzaSyCdqrxQ2S8i75YjveUK6KhRqqDXxX_CFU4 -->
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdqrxQ2S8i75YjveUK6KhRqqDXxX_CFU4&sensor=true"></script> -->
+
+
 </head>
 <body>
 <div class = 'navbar navbar-fixed-top navbar-inverse'>
@@ -40,8 +55,21 @@
 
 <div class="container">
 	<div class = 'row'>
-		<div class = 'col-md-8 well border-radius-base'>
-			<br><br>	Map stuff here
+		<div id = 'map' class = 'col-md-8 well '>
+			<script>
+		      var map;
+		      function initMap() {
+		        map = new google.maps.Map(document.getElementById('map'), {
+		          center: {lat: -34.397, lng: 150.644},
+		          zoom: 8
+		        });
+		      }
+		    </script>
+		    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdqrxQ2S8i75YjveUK6KhRqqDXxX_CFU4&callback=initMap"
+		    async defer></script>
+
+
+
 		</div>
 		<div class = 'col-md-4'>
 			<div class = 'well'>
