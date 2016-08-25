@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Tripplanner </title>
-</head>
-<body>
+{% extends "layout.html" %}
 
-<div align='float'>
+{% block content %}
+	
 	<h2>Hotels: </h2>
 	<select >
 		{% for hotel in hotels%}
@@ -34,12 +30,6 @@
 		{% endfor%}
 	</select>
 
-
-</div>
-
+	{% endblock %}
 
 
-
-
-</body>
-</html>
