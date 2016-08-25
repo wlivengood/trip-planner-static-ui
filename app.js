@@ -16,6 +16,8 @@ app.use(bodyParser.json());
 // app.use(volleyball);
 
 app.use(express.static(__dirname + '/node_modules'));
+app.use('/public', express.static(__dirname + '/public'));
+
 
 
 app.get('/', function(req, res, next) {
