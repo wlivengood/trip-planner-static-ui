@@ -2,34 +2,27 @@
 
 {% block content %}
 	
-	<h2>Hotels: </h2>
+	<h3>Hotels: </h3>
 	<select >
 		{% for hotel in hotels%}
 			<option > {{hotel.name}} </option>	
 		{% endfor%}
 	</select>
 
-	<h2>Restaurants: </h2>
+	<h3>Restaurants: </h3>
 	<select>
 		{% for restaurant in restaurants%}
 			<option > {{restaurant.name}} </option>	
 		{% endfor%}
 	</select>
 
-	<h2>Activities </h2>
+	<h3>Activities </h3>
 	<select>
 		{% for activity in activities%}
 			<option> {{activity.name}} </option>	
 		{% endfor%}
 	</select>
 
-	<h2>Places: </h2>
-	<select>
-		{% for place in places%}
-			<option> {{place.address}} </option>	
-		{% endfor%}
-	</select>
-
-	{% endblock %}
+{% endblock %}
 
 
